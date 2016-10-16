@@ -1,0 +1,7 @@
+.ko-tooltip-container {
+  border: solid 1px black;
+  display: inline-block;;
+  position: absolute;
+  padding: .1rem .3rem;
+  background-color: #FFF;
+}
