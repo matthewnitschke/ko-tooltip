@@ -14,6 +14,17 @@
   <link rel="stylesheet" href="src/ko-tooltip.css">
   <script src="src/ko-tooltip.js"></script>
 
+  <style>
+    .hoverTrigger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: red;
+      width: 10rem;
+      height:5rem;
+    }
+  </style>
+
 </head>
 <body>
 
@@ -24,12 +35,27 @@
       <ko-component-parameter params="{name: 'element', type: 'observable(string)', description: 'the element the tooltip is visible on'}"></ko-component-parameter>
       <ko-component-parameter params="{name: 'position', type: 'String', description: 'the position for the tooltip [top, right, bottom]'}"></ko-component-parameter>
     </ko-component-parameters>
-    
+
     <ko-component-examples>
-      <ko-component-example>
-        <ko-tooltip params="{text: 'This is a tooltip', element: '#elementDiv'}"></ko-tooltip>
-        <div id="elementDiv" style="display: inline-block; height: 50rem; width: 50rem; background-color: yellow;">Hover Me</div>
+
+      <ko-component-example params="{label: 'Basic Implementation'}">
+        <ko-tooltip params="{text: 'This is a tooltip', element: '#elementOne'}"></ko-tooltip>
+        <div id="elementOne" class="hoverTrigger">Hover Me</div>
       </ko-component-example>
+
+      <ko-component-example params="{label: 'Observable position'}">
+        <ko-tooltip params="{text: 'This is a tooltip', element: '#elementTwo', position: position}"></ko-tooltip>
+        <div id="elementTwo" class="hoverTrigger">Hover Me</div>
+        <input type="radio" name="pos" value="top" data-bind="checked: position"> Top <br>
+        <input type="radio" name="pos" value="right" data-bind="checked: position"> Right <br>
+        <input type="radio" name="pos" value="bottom" data-bind="checked: position"> Bottom
+        <ko-component-example-script>
+        {
+          position: ko.observable("right")
+        }
+        </ko-component-example-script>
+      </ko-component-example>
+
     </ko-component-examples>
 
   </ko-component-page>

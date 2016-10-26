@@ -11,8 +11,16 @@
       }
 
       var shiftPos;
-      if (params.position){
-        shiftPos = positions[params.position];
+
+      if (ko.unwrap(params.position)){
+        shiftPos = positions[ko.unwrap(params.position)];
+
+        if (ko.isObservable(params.position)){ // react to change if it is an observable
+          params.position.subscribe(function(val){
+            shiftPos = positions[val];
+          });
+        }
+
       } else {
         shiftPos = positions.right;
       }
