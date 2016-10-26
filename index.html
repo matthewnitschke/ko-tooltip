@@ -24,6 +24,13 @@
       <ko-component-parameter params="{name: 'element', type: 'observable(string)', description: 'the element the tooltip is visible on'}"></ko-component-parameter>
       <ko-component-parameter params="{name: 'position', type: 'String', description: 'the position for the tooltip [top, right, bottom]'}"></ko-component-parameter>
     </ko-component-parameters>
+    
+    <ko-component-examples>
+      <ko-component-example>
+        <ko-tooltip params="{text: 'This is a tooltip', element: '#elementDiv'}"></ko-tooltip>
+        <div id="elementDiv" style="display: inline-block; height: 50rem; width: 50rem; background-color: yellow;>Hover Me</div>
+      </ko-component-example>
+    </ko-component-examples>
 
   </ko-component-page>
 
